@@ -18,6 +18,9 @@ layout: layout
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     <div class="tags">
+                        <span class="tags" style="margin: 5px;">
+                            <i class="fa fa-tag"></i>
+                        </span>
                         <% page.tags.forEach(function(tag){ %>
                           <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
                         <% }) %>
@@ -28,6 +31,10 @@ layout: layout
                         Posted by <%- page.author || config.author %> on
                         <%= page.date.format(config.date_format) %>
                     </span>
+
+                    <span class="meta">Word Count <%= wordcount(page.content) %>，
+                    <%= min2read(page.content) %> min to read</span>
+
                 </div>
             </div>
         </div>
